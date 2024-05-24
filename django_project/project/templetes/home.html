@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dijango-project</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body{
+            background:url('https://i.pinimg.com/originals/bd/ac/32/bdac327b05ddaa05216dfa08c9e734c3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+        h1{
+            margin-bottom: 30px;
+            font-weight: bolder;
+        }
+        h4{
+            margin-bottom: 30px;
+            font-weight: bolder;
+        }
+        .link{
+            display: flex;
+        }
+        .link div a{
+            text-decoration: none;
+            color: white;
+            border: solid;
+            padding: 10px;
+            border-radius:10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Canvas</h1>
+    <h4>Paint Your Day With Productivity.</h4>
+    <div class="link">
+        <div><a href="{% url 'signup' %}">SIGN UP</a></div>
+        <div><a href="{% url 'signin' %}">SIGN IN</a></div>
+    </div>
+</body>
+</html>

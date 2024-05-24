@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dijango-project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .signup img {
+            width: 100%;
+            height: 50vh;
+            position: relative;
+        }
+
+        .section {
+            margin: 0px 5%;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            top: 32%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.1)0px 4px 4px;
+            padding-bottom: 70px;
+        }
+
+        .section h1 {
+            font-size: 30px;
+            font-weight: bolder;
+            margin: 40px 0px;
+        }
+
+        .section h2 {
+            color: red;
+        }
+
+        .section form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(300px, 400px));
+            margin: 20px 300px;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section form input {
+            padding: 8px 10px;
+            border: solid rgb(178, 172, 172)thin;
+            border-radius: 5px;
+        }
+
+        #email {
+            grid-column-start: 1;
+            grid-column-end: -1;
+
+        }
+
+        h4 {
+            grid-column-start: 1;
+            grid-column-end: -1;
+            display: flex;
+            justify-content: center;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        h4 a {
+            margin-left: 5px;
+            color: blueviolet;
+        }
+
+        button {
+            grid-column-start: 1;
+            grid-column-end: -1;
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+            background-color: #1D24CA;
+            padding: 7px;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="signup">
+    <img src="https://png.pngtree.com/background/20210709/original/pngtree-technology-chip-line-intelligent-picture-image_914636.jpg"
+        alt="">
+    <div class="section">
+        {% if messages %}
+        {% for message in messages %}
+        <h2>{{message}}</h2>
+        {% endfor%}
+        {% endif %}
+        <h1>Sign up now</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="firstname" placeholder="First name" required id="firstname">
+            <input type="text" name="lastname" placeholder="Last name" required id="lastname">
+            <input type="email" name="email" placeholder="Email address" required id="email">
+            <input type="text" name="username" placeholder="Username" required id="username">
+            <input type="number" name="mobile" placeholder="Mobile number" required id="mobile">
+            <input type="text" name="password" placeholder="Password" required id="password">
+            <input type="text" name="confirmpassword" placeholder="Confirmpassword" required id="confirmpassword">
+            <h4>Have an account?<a href="{% url 'signin' %}">singnin</a></h4>
+            <button>SIGN UP</button>
+        </form>
+    </div>
+</body>
+
+</html>
